@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Price Comparison Tool</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Price Comparison Tool</h1>
+    {% if current_user %}
+        <p>Welcome, {{ current_user.username }}!</p>
+        <a href="{{ url_for('logout') }}">Logout</a>
+    {% else %}
+        <a href="{{ url_for('login') }}">Login</a>
+        <a href="{{ url_for('signup') }}">Signup</a>
+    {% endif %}
+    <hr>
+    <h2>Compare prices on Flipkart and Amazon</h2>
+    {% if message %}
+        <p style="color: red;">{{ message }}</p>
+    {% endif %}
+    <form method="post">
+        <label for="product">Product:</label>
+        <input type="text" id="product" name="product" required>
+        <input type="submit" value="Compare">
+    </form>
+    {% if result %}
+        <h3>{{ result }}</h3>
+        {% if cheapest %}
+            <p>{{ cheapest }} has the lowest price!</p>
+        {% endif %}
+    {% endif %}
+</body>
+</html>

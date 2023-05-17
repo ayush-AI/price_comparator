@@ -1,0 +1,54 @@
+from flask import Flask, render_template, request, redirect, url_for
+
+app = Flask(_name_)
+
+# define a dictionary of valid usernames and passwords
+users = {
+    "user1": "password1",
+    "user2": "password2",
+    "user3": "password3"
+}
+
+@app.route("/")
+def home():
+    return render_template("home.html")
+
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    if request.method == "POST":
+        # extract the username and password from the form data
+        username = request.form["username"]
+        password = request.form["password"]
+        
+        # check if the username and password are valid
+        if username in users and users[username] == password:
+            return redirect(url_for("index"))
+        else:
+            return render_template("login.html", error="Invalid username or password.")
+    else:
+        return render_template("login.html")
+
+@app.route("/signup", methods=["GET", "POST"])
+def signup():
+    if request.method == "POST":
+        # extract the username and password from the form data
+        username = request.form["username"]
+        password = request.form["password"]
+        
+        # check if the username is already taken
+        if username in users:
+            return render_template("signup.html", error="Username already taken.")
+        else:
+            # add the new user to the dictionary of valid usernames and passwords
+            users[username] = password
+            return redirect(url_for("login"))
+    else:
+        return render_template("signup.html")
+
+@app.route("/index")
+def index():
+    # render the index page if the user is logged in
+    return render_template("index.html")
+
+if __name__ == "__main__":
+    app.run(debug=True)

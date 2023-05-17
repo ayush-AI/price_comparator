@@ -1,0 +1,85 @@
+/* apply some basic styling to the page */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  text-align: center;
+}
+
+/* style the header */
+h1 {
+  background-color: #4CAF50;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+  border-bottom: 4px solid #3e8e41;
+}
+
+/* style the form */
+form {
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  margin: 40px auto;
+  max-width: 600px;
+}
+
+label {
+  font-weight: bold;
+  color: #555;
+  text-align: center;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: #f2f2f2;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+  color: #333;
+}
+
+button[type="Compare"] {
+  background-color: #3e8e41;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+button[type="Compare"]:hover {
+  background-color: #4CAF50;
+}
+
+/* style the result text */
+p {
+  padding: 10px;
+  background-color: #f2f2f2;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  color: #555;
+  font-size: 16px;
+  text-align: center;
+}
+
+/* style the cheapest price text */
+p:nth-child(2) {
+  font-weight: bold;
+  color: #3e8e41;
+  font-size: 20px;
+  text-align: center;
+  padding: 20px;
+  border: 1px solid #3e8e41;
+  border-radius: 4px;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
